@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <!--<div class='panel-heading'> <h1>Car</h1> </div>-->
+        <div class="panel-body">
+            <div class='container'>
+                <div class='col-xs-12 col-sm-4 right-border'><h1>Cars</h1><br/>
+                    <div ng-repeat="car in cars">
+                        <button class="btn btn-default">{{ car }}</button>
+                    </div>
+                </div>
+                <div class='col-xs-12 col-sm-8'><br/>
+                    <form class="form-inline" role="form" ng-submit="submit(car.name)">
+                        <fieldset>
+                            <legend>New Record:</legend>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="Name" placeholder="#Name" ng-model="car.name" required="true">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div><!-- .col-xs-8 -->
+            </div>
+        </div>
+    </div>
+
+
+{{countingNumber}}
+
+
+
+
+
+<div class="well">
+    <a-component count="countingNumber"></a-component>
+</div>
+
+
+
+
+
+
+</div><!-- .container -->
+
+
+
+<style>
+    .right-border{
+        border-right: 1px solid #337ab7;
+        min-height: 130px
+    }
+    .form-inline legend{
+         width:94%;
+    }
+    @media (max-width: 768px) {
+        .right-border {
+            border: none;
+        }
+    }
+</style>
