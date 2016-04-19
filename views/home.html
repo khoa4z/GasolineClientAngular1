@@ -1,3 +1,21 @@
-<div>
-    Just a home page
+<div class="container">
+    Just a home page <br/>
+        
+
+    <input type="text" class="form-control" ng-model="countingNumber"/> <br/>
+
+    {{countingNumber}}
+
+    <div class="well">
+        Directive<br/>
+        <a-directive number="{{ countingNumber }}"></a-directive>
+    </div>
+       
+    <div class="well">
+        Component<br/>
+        <a-component count="countingNumber"></a-component>
+    </div>
+
+    <div my-isolated-scope-with-name name="{{ name }}"></div>
 </div>
+

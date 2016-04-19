@@ -39,8 +39,8 @@ app.config([ '$stateProvider', '$urlRouterProvider','$locationProvider', functio
 
 
 app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state){
-    $state.go('gasoline');
-    
+    //$state.go('gasoline');
+    $scope.countingNumber = 455;
 }]);
 
 app.controller('CarCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state){
@@ -51,7 +51,28 @@ app.controller('CarCtrl', ['$scope', '$rootScope', '$state', function($scope, $r
         $scope.car.name = "";
     }
     $scope.countingNumber = 4;
+    $scope.na.counting = 123;
+    $scope.name = "NAME NAME";
 }]);
+
+app.directive('aDirective', function() {
+    return {
+        restrict:'EA',//sport. To the Game
+        replace:true,
+        //require:'^datasource',
+        scope:{          //isolate scope,
+            //datasource: '=',
+            number:'@'
+        },
+        templateUrl:'views/templateDirective.html',
+        // controller: ['$scope', function($scope) {
+        //     $scope.dir1 =  15;
+        // }],
+        // link: function(scope, iElement, iAttrs, ctrl) {
+        //     console.log(iAttrs.ngModel);    
+        // }
+    };
+});
 
 app.component('aComponent', {
     templateUrl:'views/templateCompo.html',    
@@ -61,4 +82,13 @@ app.component('aComponent', {
     bindings: {
         count: '='
     },
+});
+
+app.directive('myIsolatedScopeWithName', function () {
+    return {
+        scope: {
+            name: '@'
+        },
+        template: 'Name: {{ name }} <input class="form-control" ng-model="name"/>'
+    };
 });
